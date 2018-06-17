@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-social-gh-pages/bootstrap-social.css' %}">
+    <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+    {% block custom_css %}{% endblock %}
+    <title>{% block title %}Hello, world!{% endblock %}</title>
+  </head>
+  <body>
+    {% block content %}
+    {% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'jquery/dist/jquery.slim.min.js' %}"></script>
+    <script src="{% static 'popper.js/dist/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
