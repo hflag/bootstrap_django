@@ -163,3 +163,62 @@ Bootstrap的设计是移动优先的，并且能够根据不同设备进行适�
     <div class="col-4 offset-1 col-sm-2">
 
 Ok，基本的bootstrap网格系统搞定，赶快刷新网页看看效果吧！
+
+                第三章 添加自定义css
+
+尽管bootstrap很强大了，但是对于我们自己的需求，也许有时还是常常不能满足，需要自定义一些样式，那么如何自定义呢？
+
+一、新建自定义css文件
+1. 在应用myapp下，新建css文件夹，将自己的css放置在这里，代码内容如下：
+
+.row-header{
+    margin: 0px auto;
+    padding: 0;
+}
+
+.row-content{
+    margin: 0px auto;
+    padding: 0px 0px 20px 0px;
+}
+
+.footer{
+    background-color: #e9ecef;
+    margin: 0px auto;
+    padding: 29px 0px 20px 0px;
+}
+address{
+    font-size:80%;
+    margin:0px;
+    color:#0f0f0f;
+}
+
+2. 在index.html中引入和使用style.css
+{% extends "base-4.1.1.html" %}
+{% load static %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+同时添加应用如下：
+    <div class="row row-header"> ... </div>
+
+    <div class="row row-content"> ... </div>
+
+    <div class="row row-content"> ... </div>
+
+    <div class="row row-content"> ... </div>
+
+    <footer class="footer"> ... </footer>
+
+二、垂直居中显示内容
+
+1. 在内容区，更新所有row的类
+    <div class='row row-content align-items-center'>
+
+2. 在footer区，更新第三个列div，就是包括社会媒体链接的那个
+    <div class='col-12 col-sm-4 align-self-center'>
+
+3. 更新包含社会媒体链接的那个div的类
+    <div class='text-center'>
+

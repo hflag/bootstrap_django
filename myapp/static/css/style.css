@@ -1,0 +1,20 @@
+.row-header{
+    margin: 0px auto;
+    padding: 0;
+}
+
+.row-content{
+    margin: 0px auto;
+    padding: 0px 0px 20px 0px;
+}
+
+.footer{
+    background-color: #e9ecef;
+    margin: 0px auto;
+    padding: 29px 0px 20px 0px;
+}
+address{
+    font-size:80%;
+    margin:0px;
+    color:#0f0f0f;
+}
