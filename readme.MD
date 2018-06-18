@@ -250,7 +250,7 @@ address{
 ```
 至此，一个页面基本完成。同时上去第二个页面aboutus.html.
 
-                第四章 aboutus.html
+# 第四章 aboutus.html
 
 我们这里的about.html算是对前面网格系统的一个复习。通过对about.html使用网格系统，
 使其成为响应式页面。
@@ -267,19 +267,21 @@ class AboutView(View):
         path('about/', views.AboutView.as_view(), name='about'),
     ]
 ```
-一、header和footer部分直接使用index.html中相应的部分，它们就不用在修改
+## 一、header和footer部分直接使用index.html中相应的部分，它们就不用在修改
 
-二、中间内容区，最外层div添加container类，注意这个类的作用使得其中内容以一个固定宽度
+## 二、中间内容区，最外层div添加container类，注意这个类的作用使得其中内容以一个固定宽度
 占据页面。
 
-三、container内有三个div，都添加row类
+## 三、container内有三个div，都添加row类
 
-1. 在第一个行内 <div class="col-12">
+1. 在第一个行内``` <div class="col-12">```
 2. 第二行内的两个div分别添加
+```
     <div class="col-12 col-sm-6">
     <div class="col-12 col-sm">
-3. 第三个div内添加 <div class="col-12">。同时为了使其内容在小屏幕下只显示标题，而大屏幕下
-标题和段落都显示，需要对其中的每个<p>添加类：<p class="d-none d-sm-block">
+```
+3. 第三个div内添加``` <div class="col-12">```。同时为了使其内容在小屏幕下只显示标题，而大屏幕下
+标题和段落都显示，需要对其中的每个```<p>```添加类：```<p class="d-none d-sm-block">```
 
 这样我们很快就完成了aboutus.html的网格系统设置，刷新浏览器看看效果吧。
 
