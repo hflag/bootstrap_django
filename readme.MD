@@ -250,7 +250,7 @@ address{
 ```
 至此，一个页面基本完成。同时上去第二个页面aboutus.html.
 
-# 第四章 aboutus.html
+                第四章 aboutus.html
 
 我们这里的about.html算是对前面网格系统的一个复习。通过对about.html使用网格系统，
 使其成为响应式页面。
@@ -267,30 +267,27 @@ class AboutView(View):
         path('about/', views.AboutView.as_view(), name='about'),
     ]
 ```
-## 一、header和footer部分直接使用index.html中相应的部分，它们就不用在修改
+一、header和footer部分直接使用index.html中相应的部分，它们就不用在修改
 
-## 二、中间内容区，最外层div添加container类，注意这个类的作用使得其中内容以一个固定宽度
+二、中间内容区，最外层div添加container类，注意这个类的作用使得其中内容以一个固定宽度
 占据页面。
 
-## 三、container内有三个div，都添加row类
+三、container内有三个div，都添加row类
 
-1. 在第一个行内``` <div class="col-12">```
+1. 在第一个行内 <div class="col-12">
 2. 第二行内的两个div分别添加
-```
     <div class="col-12 col-sm-6">
     <div class="col-12 col-sm">
-```
-3. 第三个div内添加``` <div class="col-12">```。同时为了使其内容在小屏幕下只显示标题，而大屏幕下
-标题和段落都显示，需要对其中的每个```<p>```添加类：```<p class="d-none d-sm-block">```
+3. 第三个div内添加 <div class="col-12">。同时为了使其内容在小屏幕下只显示标题，而大屏幕下
+标题和段落都显示，需要对其中的每个<p>添加类：<p class="d-none d-sm-block">
 
 这样我们很快就完成了aboutus.html的网格系统设置，刷新浏览器看看效果吧。
 
-
-                第五章 添加响应式导航条
+# 第五章 添加响应式导航条
 
 所谓响应式导航条，就是在大屏幕时能够完整呈现所有导航菜单，在小屏幕时能够成为一个折叠菜单。
 
-一、构建导航菜单
+## 一、构建导航菜单
 1. 基本导航菜单的添加，在页面中的header之前，添加<nav>...</nav>构成一个导航条组件，代码如下
 ```html
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
@@ -341,7 +338,7 @@ class AboutView(View):
 ```
 ok, 刷新页面，看看在小屏幕和大屏幕下是否有了区别，导航条部分。
 
-二、修改body的css
+## 二、修改body的css
 因为添加导航条后，需要修改body的css，为显示导航条预留空间，在style.css中添加如下内容：
 ```css
 body{
@@ -349,7 +346,7 @@ body{
     z-index: 0;
 }
 ```
-三、在导航中添加具体地址，在index.html页面内，修改about页面的href
+## 三、在导航中添加具体地址，在index.html页面内，修改about页面的href
 ```html
 <li class="nav-item active">
     <a class="nav-link" href="{% url 'index' %}">
@@ -364,15 +361,15 @@ body{
 ```
 这样点击相应菜单时，就可以正确跳转了。
 
-四、拷贝index.html中的nav部分，添加到aboutus.html页面，是aboutus.html页面也有导航条。
+## 四、拷贝index.html中的nav部分，添加到aboutus.html页面，是aboutus.html页面也有导航条。
 接下来修改当前导航菜单，把包含Home的li标签的active删去，添加到包含About的li标签中。
 
-                第六章 为页面添加Icon Fonts
+# 第六章 为页面添加Icon Fonts
 
 页面中添加精美的icon fonts后能添加好多灵气，如果要在页面中使用icon fonts。必须有font-awesome
 和 bootstrap-social支持。我们的base-4.1.1模板中已经集成了支持。
 
-一、在页面中使用font icons，起到装饰的作用，更新navbar中的ul
+## 一、在页面中使用font icons，起到装饰的作用，更新navbar中的ul
 ```html
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -403,14 +400,14 @@ body{
 ```
 相应的也要更新aboutus.html中的navbar
 
-二、修改index和aboutus页面中footer内的address，使用下面的代码取代'Tel', 'Fax'和'Email'
+## 二、修改index和aboutus页面中footer内的address，使用下面的代码取代'Tel', 'Fax'和'Email'
 ```html
 <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
 <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
 <i class="fa fa-envelope fa-lg"></i>:
  <a href="mailto:confusion@food.net">confusion@food.net</a>
 ```
-三、使用bootstrap-social CSS类来创建social按钮
+## 三、使用bootstrap-social CSS类来创建social按钮
 在index和aboutus中的footer部分，修改social链接如下：
 ```html
 <div class="text-center">
@@ -425,11 +422,11 @@ body{
 至此完成icon fonts使用，赶快刷新页面看看吧
 
 
-                第七章 添加contactus.html页面
+# 第七章 添加contactus.html页面
 
 在应用myapp中添加contactus.html页面，并对其进行视图和路由设置
 
-一、添加contactus.html
+## 一、添加contactus.html
 1. 在应用myapp中修改views.py
 ``python
 class ContactView(View):
@@ -444,7 +441,7 @@ urlpatterns = [
     path('contact/', views.ContactView.as_view(), name='contact'),
 ]
 ```
-二、在页面里使用buttons
+## 二、在页面里使用buttons
 1. 添加button bar。在页面contactus.html中，找到“button group goes here",
 使用下面的代码取代：
 ```html
