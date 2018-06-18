@@ -265,3 +265,77 @@ class AboutView(View):
 
 这样我们很快就完成了aboutus.html的网格系统设置，刷新浏览器看看效果吧。
 
+
+                第五章 添加响应式导航条
+
+所谓响应式导航条，就是在大屏幕时能够完整呈现所有导航菜单，在小屏幕时能够成为一个折叠菜单。
+
+一、构建导航菜单
+1. 基本导航菜单的添加，在页面中的header之前，添加<nav>...</nav>构成一个导航条组件，代码如下
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ristorante Con Fusion</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">
+                        About
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">
+                        Menu
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+注意，到了这里就是一个普通的导航条，是不具备响应式特性的！
+
+2.增加响应式代码
+
+在上面的container下添加button，代码如下：
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+         <span class="navbar-toggler-icon"></span>
+    </button>
+
+在ul外添加一个div，设置如下：
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto">
+                ...
+                </ul>
+            </div>
+ok, 刷新页面，看看在小屏幕和大屏幕下是否有了区别，导航条部分。
+
+二、修改body的css
+因为添加导航条后，需要修改body的css，为显示导航条预留空间，在style.css中添加如下内容：
+body{
+    padding:50px 0px 0px 0px;
+    z-index: 0;
+}
+
+三、在导航中添加具体地址，在index.html页面内，修改about页面的href
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'index' %}">
+        Home
+    </a>
+</li>
+ <li class="nav-item ">
+    <a class="nav-link" href="{% url 'about' %}">
+        About
+    </a>
+ </li>
+这样点击相应菜单时，就可以正确跳转了。
+
+三、拷贝index.html中的nav部分，添加到aboutus.html页面，是aboutus.html页面也有导航条。
+接下来修改当前导航菜单，把包含Home的li标签的active删去，添加到包含About的li标签中。
