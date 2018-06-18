@@ -11,7 +11,7 @@
 登录node.js官网，下载合适的版本进行安装，非常简单！关键是node.js有一个工具非常有用，那就是npm！
 用npm可以下载bootstrap所需要的css和js。
 
-### 1. 在d：盘建立一个新的目录，命名为‘bd’，进入‘d:/bd',执行如下命令：
+ 1. 在d：盘建立一个新的目录，命名为‘bd’，进入‘d:/bd',执行如下命令：
 
     1) npm install bootstrap 下载bootstrap的css和js
     2）npm install jquery  下载jquery
@@ -21,26 +21,26 @@
 
 ## 二、建立django项目和应用
 
-### 1. 在d：盘下新建一个目录www，在该目录下建立虚拟开发环境
+ 1. 在d：盘下新建一个目录www，在该目录下建立虚拟开发环境
     python -m venv webvenv
 
-### 2. 激活该虚拟环境
+ 2. 激活该虚拟环境
     d:\www\webvenv\scripts\activate
 
-### 3. 安装django
+ 3. 安装django
     pip install django
 
-### 4. 使用pycharm建立项目
+ 4. 使用pycharm建立项目
 注意一定要使用刚刚建立的虚拟环境建立项目！
 
-### 5. 进入pycharm，打开Terminal创建应用myapp，不要忘记在项目settings.py 中添加该应用。
+ 5. 进入pycharm，打开Terminal创建应用myapp，不要忘记在项目settings.py 中添加该应用。
 
-### 6. 在应用myapp下建立static文件夹，将下载好的bootstrap相关文件都拷贝到这里。
+ 6. 在应用myapp下建立static文件夹，将下载好的bootstrap相关文件都拷贝到这里。
 
-### 7. 在应用myapp建立templates文件夹，然后再建立myapp子文件夹。接下来最为重要的一步，
+ 7. 在应用myapp建立templates文件夹，然后再建立myapp子文件夹。接下来最为重要的一步，
 就是在templates构建整个项目的基础模板base-4.1.1.html
 
-### 8. 其实，所谓的bootstrap框架，无非就是在网页里引入那么几个css和js，没有想象的那么高大上。
+ 8. 其实，所谓的bootstrap框架，无非就是在网页里引入那么几个css和js，没有想象的那么高大上。
 base-4.1.1.html代码如下：
 ```html
 <!DOCTYPE html>
@@ -72,9 +72,9 @@ base-4.1.1.html代码如下：
 ```
 这个文件不仅仅集成了bootstrap框架，同时还使用了django的模板语言。是整个项目的基础。
 
-### 9.在myapp中放入index.html，目前该网页没有使用任何bootstrap样式。
+ 9.在myapp中放入index.html，目前该网页没有使用任何bootstrap样式。
 
-### 10. 编写myapp应用视图，修改views.py，添加如下代码：
+ 10. 编写myapp应用视图，修改views.py，添加如下代码：
 ```python
 from django.shortcuts import render
 from django.views.generic.base import View
@@ -94,7 +94,7 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
 ]
 ```
-### 12. 把myapp的路由文件添加到项目总路由文件中，修改项目下的urls.py如下：
+ 12. 把myapp的路由文件添加到项目总路由文件中，修改项目下的urls.py如下：
 ```python
 from django.contrib import admin
 from django.urls import path, include
@@ -118,7 +118,7 @@ Bootstrap的设计是移动优先的，并且能够根据不同设备进行适�
 ## 一、使用container类
 对一个块级标签使用container的作用是保持内容显示在屏幕上一个固定尺寸的宽度。另一个选择是使用container-fluid，
 这个类能使内容自动散开填满整个屏幕的宽度。
-### 1. 首先对</header>下的div添加这个类，代码如下：
+ 1. 首先对</header>下的div添加这个类，代码如下：
 ```html
     <div class='container'>...
 ```
@@ -267,7 +267,7 @@ class AboutView(View):
         path('about/', views.AboutView.as_view(), name='about'),
     ]
 ```
-## 一、header和footer部分直接使用index.html中相应的部分，它们就不用在修改
+## 一、header和footer部分直接使用index.html中相应的部分，它们就不用再修改
 
 ## 二、中间内容区，最外层div添加container类，注意这个类的作用使得其中内容以一个固定宽度
 占据页面。
@@ -280,7 +280,7 @@ class AboutView(View):
     <div class="col-12 col-sm-6">
     <div class="col-12 col-sm">
 ```
-3. 第三个div内添加 ```<div class="col-12">``。同时为了使其内容在小屏幕下只显示标题，而大屏幕下
+3. 第三个div内添加 ```<div class="col-12">```。同时为了使其内容在小屏幕下只显示标题，而大屏幕下
 标题和段落都显示，需要对其中的每个```<p>```添加类：```<p class="d-none d-sm-block">```
 
 这样我们很快就完成了aboutus.html的网格系统设置，刷新浏览器看看效果吧。
