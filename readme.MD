@@ -623,3 +623,55 @@ urlpatterns = [
 ```
 效果如下：
 ![card2效果](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/card2.png)
+
+# 第九章 页面中使用image和media
+
+## 一、在页面index.html中添加image
+1. 找到index.html中的jumbotron，修改第二个div
+```html
+<div class="col-12 col-sm align-self-center text-center">
+    <img src="{% static 'img/logo.png' %}" class="img-fluid">
+</div>
+```
+2. 找到nav中的a标签，将其中的文字替换为公司的logo图片
+```html
+<a class="navbar-brand" href="{% url 'index' %}">
+   <img src="{% static 'img/logo.png' %}" height="30" width="41">
+</a>
+```
+在aboutus.html和contactus.html页面里重复上面的操作。
+
+## 二、使用media组件
+1. 找到内容区的第一行，使用下列的代码取代第二列内容
+```html
+            <div class="col-12 col-sm order-sm-first col-md">
+                <div class="media">
+                    <img class="d-flex mr-3 img-thumbnail align-self-center" src="{% static 'img/uthappizza.png' %}">
+                    <div class="media-body">
+                        <h2 class="mt-0">Uthappizza</h2>
+                        <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola
+                            olives,
+                            ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
+                    </div>
+                </div>
+
+            </div>
+```
+2. 找到内容区第三行，使用下面的代码取代第二列内容
+```html
+            <div class="col-12 col-sm order-sm-first col-md">
+                <div class="media">
+                    <img class="d-flex mr-3 img-thumbnail align-self-center"
+                         src="{% static 'img/alberto.png' %}" alt="Alberto Somayya">
+                    <div class="media-body">
+                        <h2 class="mt-0">Alberto Somayya</h2>
+                        <h4>Executive Chef</h4>
+                        <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide
+                            International experience having worked closely with
+                            whos-who in the culinary world, he specializes in
+                            creating mouthwatering Indo-Italian fusion experiences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+```
