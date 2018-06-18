@@ -168,7 +168,7 @@ Bootstrap的设计是移动优先的，并且能够根据不同设备进行适�
 
     <div class="col col-sm order-sm-first col-md"> ... </div>
 ```
-2. 对包含<ul>标签的div，更新如下：
+2. 对包含ul标签的div，更新如下：
 ```html
     <div class="col-4 offset-1 col-sm-2">
 ```
