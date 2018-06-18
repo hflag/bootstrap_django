@@ -517,4 +517,4 @@ urlpatterns = [
                 </form>
 ```
 这样就在页面中添加了一个form。效果如下：
-![screen-shot](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/FireShot Capture 003 - Ristorante Con Fusion_ About Us - http___localhost_8000_contact_.png)
+![form](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/FireShot%20Capture%20003%20-%20Ristorante%20Con%20Fusion_%20About%20Us%20-%20http___localhost_8000_contact_.png)
