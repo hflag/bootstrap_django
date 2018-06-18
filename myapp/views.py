@@ -10,3 +10,8 @@ class IndexView(View):
 class AboutView(View):
     def get(self, request):
         return render(request, 'myapp/aboutus.html')
+
+
+class ContactView(View):
+    def get(self, request):
+        return render(request, 'myapp/contactus.html')

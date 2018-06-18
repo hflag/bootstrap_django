@@ -392,3 +392,32 @@ body{
 </div>
 
 至此完成icon fonts使用，赶快刷新页面看看吧
+
+
+                第七章 添加contactus.html页面
+
+在应用myapp中添加contactus.html页面，并对其进行视图和路由设置
+
+一、添加contactus.html
+1. 在应用myapp中修改views.py
+
+class ContactView(View):
+    def get(self, request):
+        return render(request, 'myapp/contactus.html')
+
+2. 添加路由，打开应用下的urls.py添加下面的代码
+urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
+    path('about/', views.AboutView.as_view(), name='about'),
+    path('contact/', views.ContactView.as_view(), name='contact'),
+]
+
+二、在页面里使用buttons
+1. 添加button bar。在页面contactus.html中，找到“button group goes here",
+使用下面的代码取代：
+
+<div class="btn-group" role="group">
+    <a role="button" class="btn btn-primary" href="tel:+85212345678"><i class="fa fa-phone"></i> Call</a>
+    <a role="button" class="btn btn-info"><i class="fa fa-skype"></i> Skype</a>
+    <a role="button" class="btn btn-success" href="mailto:confusion@food.net"><i class="fa fa-envelope-o"></i> Email</a>
+</div>
