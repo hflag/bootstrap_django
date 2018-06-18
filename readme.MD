@@ -1,9 +1,9 @@
-                    第一章 项目准备工作
-                    ===
+                    # 第一章 项目准备工作
+                   
 
 本项目是一个bootstrap的教学案例，前台使用bootstrap，后台采用了django框架。
 
-### 一、 下载bootstrap框架
+## 一、 下载bootstrap框架
 
 尝试了各种方法下载和配置bootstrap所需要的css和js，最后发现使用node.js来搞定这些是最方便的了。
 那么我们就需要先来安装node.js.
@@ -11,7 +11,7 @@
 登录node.js官网，下载合适的版本进行安装，非常简单！关键是node.js有一个工具非常有用，那就是npm！
 用npm可以下载bootstrap所需要的css和js。
 
-1. 在d：盘建立一个新的目录，命名为‘bd’，进入‘d:/bd',执行如下命令：
+### 1. 在d：盘建立一个新的目录，命名为‘bd’，进入‘d:/bd',执行如下命令：
 
     1) npm install bootstrap 下载bootstrap的css和js
     2）npm install jquery  下载jquery
@@ -19,7 +19,7 @@
     4）npm install django-social 下载图标
     5）npm install popper.js --save 下载popper.js
 
-二、建立django项目和应用
+## 二、建立django项目和应用
 
 1. 在d：盘下新建一个目录www，在该目录下建立虚拟开发环境
     python -m venv webvenv
