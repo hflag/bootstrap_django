@@ -1,4 +1,4 @@
-                    # 第一章 项目准备工作
+# 第一章 项目准备工作
                    
 
 本项目是一个bootstrap的教学案例，前台使用bootstrap，后台采用了django框架。
@@ -21,28 +21,28 @@
 
 ## 二、建立django项目和应用
 
-1. 在d：盘下新建一个目录www，在该目录下建立虚拟开发环境
+### 1. 在d：盘下新建一个目录www，在该目录下建立虚拟开发环境
     python -m venv webvenv
 
-2. 激活该虚拟环境
+### 2. 激活该虚拟环境
     d:\www\webvenv\scripts\activate
 
-3. 安装django
+### 3. 安装django
     pip install django
 
-4. 使用pycharm建立项目
+### 4. 使用pycharm建立项目
 注意一定要使用刚刚建立的虚拟环境建立项目！
 
-5. 进入pycharm，打开Terminal创建应用myapp，不要忘记在项目settings.py 中添加该应用。
+### 5. 进入pycharm，打开Terminal创建应用myapp，不要忘记在项目settings.py 中添加该应用。
 
-6. 在应用myapp下建立static文件夹，将下载好的bootstrap相关文件都拷贝到这里。
+### 6. 在应用myapp下建立static文件夹，将下载好的bootstrap相关文件都拷贝到这里。
 
-7. 在应用myapp建立templates文件夹，然后再建立myapp子文件夹。接下来最为重要的一步，
+### 7. 在应用myapp建立templates文件夹，然后再建立myapp子文件夹。接下来最为重要的一步，
 就是在templates构建整个项目的基础模板base-4.1.1.html
 
-8. 其实，所谓的bootstrap框架，无非就是在网页里引入那么几个css和js，没有想象的那么高大上。
+### 8. 其实，所谓的bootstrap框架，无非就是在网页里引入那么几个css和js，没有想象的那么高大上。
 base-4.1.1.html代码如下：
-
+```html
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -69,13 +69,13 @@ base-4.1.1.html代码如下：
     <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
   </body>
 </html>
-
+```
 这个文件不仅仅集成了bootstrap框架，同时还使用了django的模板语言。是整个项目的基础。
 
 9.在myapp中放入index.html，目前该网页没有使用任何bootstrap样式。
 
 10. 编写myapp应用视图，修改views.py，添加如下代码：
-
+```python
 from django.shortcuts import render
 from django.views.generic.base import View
 
@@ -83,9 +83,9 @@ from django.views.generic.base import View
 class IndexView(View):
     def get(self, request):
         return render(request, 'myapp/index.html')
-
+```
 11. 添加应用myapp的路由文件urls.py, 写入下面的代码
-
+```python
 from django.urls import path
 from . import views
 
@@ -93,9 +93,9 @@ from . import views
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
 ]
-
+```
 12. 把myapp的路由文件添加到项目总路由文件中，修改项目下的urls.py如下：
-
+```python
 from django.contrib import admin
 from django.urls import path, include
 
@@ -103,7 +103,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myapp.urls')),
 ]
-
+```
 启动服务器，目前看到的是没有使用bootstrap的页面，简单、丑陋
 
 
@@ -111,7 +111,9 @@ urlpatterns = [
 
 Bootstrap的设计是移动优先的，并且能够根据不同设备进行适当的自适应，以便达到跨设备的目标。之所以bootstrap
 能够做到这一点，关键的就是媒体查询，我们在<head></head>部分已经添加如下的媒体查询的代码：
+```html
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+```
 接下来，我们就可以使用bootstrap强大的网格系统（grid system）了。
 
 一、使用container类
@@ -171,7 +173,7 @@ Ok，基本的bootstrap网格系统搞定，赶快刷新网页看看效果吧！
 
 一、新建自定义css文件
 1. 在应用myapp下，新建css文件夹，将自己的css放置在这里，代码内容如下：
-
+```css
 .row-header{
     margin: 0px auto;
     padding: 0;
@@ -192,16 +194,18 @@ address{
     margin:0px;
     color:#0f0f0f;
 }
-
+```
 2. 在index.html中引入和使用style.css
+```html
 {% extends "base-4.1.1.html" %}
 {% load static %}
 
 {% block custom_css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
-
+```
 同时添加应用如下：
+```html
     <div class="row row-header"> ... </div>
 
     <div class="row row-content"> ... </div>
@@ -211,7 +215,7 @@ address{
     <div class="row row-content"> ... </div>
 
     <footer class="footer"> ... </footer>
-
+```
 二、垂直居中显示内容
 
 1. 在内容区，更新所有row的类
@@ -225,9 +229,10 @@ address{
 
 三、水平居中显示内容
 更新footer中包含内容段落的div：
+```html
     <div class="row justify-content-center">
                 <div class="col-auto">
-
+```
 
 四、设置ul样式
     <ul class="list-unstyled"> ... </ul>
@@ -239,17 +244,18 @@ address{
 我们这里的about.html算是对前面网格系统的一个复习。通过对about.html使用网格系统，
 使其成为响应式页面。
 为了使页面aboutus.html能够显示，首先要修改视图，在myapp应用中的views.py，添加代码：
-
+```python
 class AboutView(View):
     def get(self, request):
         return render(request, 'myapp/aboutus.html')
-
+```
 另外，为这个页面建立路由，打开myapp下的urls.py, 添加一条路由：
+```python
     urlpatterns = [
         path('', views.IndexView.as_view(), name='index'),
         path('about/', views.AboutView.as_view(), name='about'),
     ]
-
+```
 一、header和footer部分直接使用index.html中相应的部分，它们就不用在修改
 
 二、中间内容区，最外层div添加container类，注意这个类的作用使得其中内容以一个固定宽度
@@ -273,6 +279,7 @@ class AboutView(View):
 
 一、构建导航菜单
 1. 基本导航菜单的添加，在页面中的header之前，添加<nav>...</nav>构成一个导航条组件，代码如下
+```html
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Ristorante Con Fusion</a>
@@ -300,32 +307,37 @@ class AboutView(View):
             </ul>
         </div>
     </nav>
-
+```
 注意，到了这里就是一个普通的导航条，是不具备响应式特性的！
 
 2.增加响应式代码
 
 在上面的container下添加button，代码如下：
+```html
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
          <span class="navbar-toggler-icon"></span>
     </button>
-
+```
 在ul外添加一个div，设置如下：
+```html
             <div class="collapse navbar-collapse" id="Navbar">
                 <ul class="navbar-nav mr-auto">
                 ...
                 </ul>
             </div>
+```
 ok, 刷新页面，看看在小屏幕和大屏幕下是否有了区别，导航条部分。
 
 二、修改body的css
 因为添加导航条后，需要修改body的css，为显示导航条预留空间，在style.css中添加如下内容：
+```css
 body{
     padding:50px 0px 0px 0px;
     z-index: 0;
 }
-
+```
 三、在导航中添加具体地址，在index.html页面内，修改about页面的href
+```html
 <li class="nav-item active">
     <a class="nav-link" href="{% url 'index' %}">
         Home
@@ -336,6 +348,7 @@ body{
         About
     </a>
  </li>
+```
 这样点击相应菜单时，就可以正确跳转了。
 
 四、拷贝index.html中的nav部分，添加到aboutus.html页面，是aboutus.html页面也有导航条。
@@ -347,6 +360,7 @@ body{
 和 bootstrap-social支持。我们的base-4.1.1模板中已经集成了支持。
 
 一、在页面中使用font icons，起到装饰的作用，更新navbar中的ul
+```html
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'index' %}">
@@ -373,16 +387,19 @@ body{
                         </a>
                     </li>
                 </ul>
+```
 相应的也要更新aboutus.html中的navbar
 
 二、修改index和aboutus页面中footer内的address，使用下面的代码取代'Tel', 'Fax'和'Email'
+```html
 <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
 <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
 <i class="fa fa-envelope fa-lg"></i>:
  <a href="mailto:confusion@food.net">confusion@food.net</a>
-
+```
 三、使用bootstrap-social CSS类来创建social按钮
 在index和aboutus中的footer部分，修改social链接如下：
+```html
 <div class="text-center">
   <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
   <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
@@ -391,7 +408,7 @@ body{
   <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
   <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
 </div>
-
+```
 至此完成icon fonts使用，赶快刷新页面看看吧
 
 
@@ -401,27 +418,28 @@ body{
 
 一、添加contactus.html
 1. 在应用myapp中修改views.py
-
+``python
 class ContactView(View):
     def get(self, request):
         return render(request, 'myapp/contactus.html')
-
+```
 2. 添加路由，打开应用下的urls.py添加下面的代码
+```python
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('about/', views.AboutView.as_view(), name='about'),
     path('contact/', views.ContactView.as_view(), name='contact'),
 ]
-
+```
 二、在页面里使用buttons
 1. 添加button bar。在页面contactus.html中，找到“button group goes here",
 使用下面的代码取代：
-
+```html
 <div class="btn-group" role="group">
     <a role="button" class="btn btn-primary" href="tel:+85212345678"><i class="fa fa-phone"></i> Call</a>
     <a role="button" class="btn btn-info"><i class="fa fa-skype"></i> Skype</a>
     <a role="button" class="btn btn-success" href="mailto:confusion@food.net"><i class="fa fa-envelope-o"></i> Email</a>
 </div>
-
+```
 效果图：
 ![screen-shot](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/screenshot-buttons.png)
