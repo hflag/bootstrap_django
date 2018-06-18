@@ -72,9 +72,9 @@ base-4.1.1.html代码如下：
 ```
 这个文件不仅仅集成了bootstrap框架，同时还使用了django的模板语言。是整个项目的基础。
 
-9.在myapp中放入index.html，目前该网页没有使用任何bootstrap样式。
+### 9.在myapp中放入index.html，目前该网页没有使用任何bootstrap样式。
 
-10. 编写myapp应用视图，修改views.py，添加如下代码：
+### 10. 编写myapp应用视图，修改views.py，添加如下代码：
 ```python
 from django.shortcuts import render
 from django.views.generic.base import View
@@ -84,7 +84,7 @@ class IndexView(View):
     def get(self, request):
         return render(request, 'myapp/index.html')
 ```
-11. 添加应用myapp的路由文件urls.py, 写入下面的代码
+### 11. 添加应用myapp的路由文件urls.py, 写入下面的代码
 ```python
 from django.urls import path
 from . import views
@@ -94,7 +94,7 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
 ]
 ```
-12. 把myapp的路由文件添加到项目总路由文件中，修改项目下的urls.py如下：
+### 12. 把myapp的路由文件添加到项目总路由文件中，修改项目下的urls.py如下：
 ```python
 from django.contrib import admin
 from django.urls import path, include
@@ -106,8 +106,7 @@ urlpatterns = [
 ```
 启动服务器，目前看到的是没有使用bootstrap的页面，简单、丑陋
 
-
-                第二章 响应式布局和bootstrap网格系统
+# 第二章 响应式布局和bootstrap网格系统
 
 Bootstrap的设计是移动优先的，并且能够根据不同设备进行适当的自适应，以便达到跨设备的目标。之所以bootstrap
 能够做到这一点，关键的就是媒体查询，我们在<head></head>部分已经添加如下的媒体查询的代码：
@@ -116,27 +115,27 @@ Bootstrap的设计是移动优先的，并且能够根据不同设备进行适�
 ```
 接下来，我们就可以使用bootstrap强大的网格系统（grid system）了。
 
-一、使用container类
+## 一、使用container类
 对一个块级标签使用container的作用是保持内容显示在屏幕上一个固定尺寸的宽度。另一个选择是使用container-fluid，
 这个类能使内容自动散开填满整个屏幕的宽度。
-1. 首先对</header>下的div添加这个类，代码如下：
+### 1. 首先对</header>下的div添加这个类，代码如下：
     <div class='container'>...
 
-二、把内容划分成rows
+## 二、把内容划分成rows
 对从container内的下一级div添加row类，这样我们可以把内容按照行来组织。
     <div class='row'>...
 这里中间部分，也就是标记为container的div下有4个子div，都要添加这个类。
 
-三、对header标签添加jumboron类。这使得header元素转换成了bootstrap的jumbotron组件。
+## 三、对header标签添加jumboron类。这使得header元素转换成了bootstrap的jumbotron组件。
 同样的紧邻的下一级div添加container类。
 
     <header class='jumbotron'>...
-
-四、对footer下的一级div也添加类container
+ 
+## 四、对footer下的一级div也添加类container
 
 经过上面的处理，目前所有网页内容显示在一个container所确定的固定宽度内。
 
-五、对每个row使用列类
+## 五、对每个row使用列类
 
 1. 对于header，添加如下代码
     <div class='col-12 col-sm-6'>...</div>
@@ -155,7 +154,7 @@ Bootstrap的设计是移动优先的，并且能够根据不同设备进行适�
 
     <div class="col-auto"> ... </div>
 
-六、使用order和offset
+## 六、使用order和offset
 1. 为了使显示格式的多样化，我们队中间那个container中三个div中的第一个和第三个添加下面的代码
 
     <div class="col-12 col-sm-4 order-sm-last col-md-3"> ... </div>
@@ -167,11 +166,11 @@ Bootstrap的设计是移动优先的，并且能够根据不同设备进行适�
 
 Ok，基本的bootstrap网格系统搞定，赶快刷新网页看看效果吧！
 
-                第三章 添加自定义css
+# 第三章 添加自定义css
 
 尽管bootstrap很强大了，但是对于我们自己的需求，也许有时还是常常不能满足，需要自定义一些样式，那么如何自定义呢？
 
-一、新建自定义css文件
+## 一、新建自定义css文件
 1. 在应用myapp下，新建css文件夹，将自己的css放置在这里，代码内容如下：
 ```css
 .row-header{
@@ -216,7 +215,7 @@ address{
 
     <footer class="footer"> ... </footer>
 ```
-二、垂直居中显示内容
+## 二、垂直居中显示内容
 
 1. 在内容区，更新所有row的类
     <div class='row row-content align-items-center'>
@@ -227,14 +226,14 @@ address{
 3. 更新包含社会媒体链接的那个div的类
     <div class='text-center'>
 
-三、水平居中显示内容
+## 三、水平居中显示内容
 更新footer中包含内容段落的div：
 ```html
     <div class="row justify-content-center">
                 <div class="col-auto">
 ```
 
-四、设置ul样式
+## 四、设置ul样式
     <ul class="list-unstyled"> ... </ul>
 
 至此，一个页面基本完成。同时上去第二个页面aboutus.html.
