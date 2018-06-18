@@ -104,3 +104,62 @@ urlpatterns = [
 ]
 
 启动服务器，目前看到的是没有使用bootstrap的页面，简单、丑陋
+
+
+                第二章 响应式布局和bootstrap网格系统
+
+Bootstrap的设计是移动优先的，并且能够根据不同设备进行适当的自适应，以便达到跨设备的目标。之所以bootstrap
+能够做到这一点，关键的就是媒体查询，我们在<head></head>部分已经添加如下的媒体查询的代码：
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+接下来，我们就可以使用bootstrap强大的网格系统（grid system）了。
+
+一、使用container类
+对一个块级标签使用container的作用是保持内容显示在屏幕上一个固定尺寸的宽度。另一个选择是使用container-fluid，
+这个类能使内容自动散开填满整个屏幕的宽度。
+1. 首先对</header>下的div添加这个类，代码如下：
+    <div class='container'>...
+
+二、把内容划分成rows
+对从container内的下一级div添加row类，这样我们可以把内容按照行来组织。
+    <div class='row'>...
+这里中间部分，也就是标记为container的div下有4个子div，都要添加这个类。
+
+三、对header标签添加jumboron类。这使得header元素转换成了bootstrap的jumbotron组件。
+同样的紧邻的下一级div添加container类。
+
+    <header class='jumbotron'>...
+
+四、对footer下的一级div也添加类container
+
+经过上面的处理，目前所有网页内容显示在一个container所确定的固定宽度内。
+
+五、对每个row使用列类
+
+1. 对于header，添加如下代码
+    <div class='col-12 col-sm-6'>...</div>
+    <div class='col-12 col-sm’>...</div>
+
+2. 中间部分的三行，添加如下的代码：
+    <div class="col-12 col-sm-4 col-md-3"> ... </div>
+
+    <div class="col col-sm col-md"> ... </div>
+3. footer中列的定义如下：
+    <div class="col-4 col-sm-2"> ... </div>
+
+    <div class="col-7 col-sm-5"> ... </div>
+
+    <div class="col-12 col-sm-4"> ... </div>
+
+    <div class="col-auto"> ... </div>
+
+六、使用order和offset
+1. 为了使显示格式的多样化，我们队中间那个container中三个div中的第一个和第三个添加下面的代码
+
+    <div class="col-12 col-sm-4 order-sm-last col-md-3"> ... </div>
+
+    <div class="col col-sm order-sm-first col-md"> ... </div>
+
+2. 对包含<ul>标签的div，更新如下：
+    <div class="col-4 offset-1 col-sm-2">
+
+Ok，基本的bootstrap网格系统搞定，赶快刷新网页看看效果吧！
