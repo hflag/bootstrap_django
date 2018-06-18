@@ -1,8 +1,9 @@
                     第一章 项目准备工作
+                    ===
 
 本项目是一个bootstrap的教学案例，前台使用bootstrap，后台采用了django框架。
 
-一、 下载bootstrap框架
+### 一、 下载bootstrap框架
 
 尝试了各种方法下载和配置bootstrap所需要的css和js，最后发现使用node.js来搞定这些是最方便的了。
 那么我们就需要先来安装node.js.
