@@ -580,7 +580,7 @@ urlpatterns = [
             </div>
 ```
 这样就添加了一个table组件，效果如下：
-![tablexiaoguo](https://github.com/hflag/bootstrap_django/blob/master/table1.png)
+![tablexiaoguo](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/table1.png)
 
 ## 二、添加card组件
 1. 在内容区的第二个div中，为第二列添加一个card
@@ -604,7 +604,7 @@ urlpatterns = [
             </div>
 ```
 效果如下：
-![card1效果图](https://github.com/hflag/bootstrap_django/blob/master/card1.png)
+![card1效果图](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/card1.png)
 
 2. 在上面div后。另外再添加一个div，增加另外一个card
 ```html
@@ -622,4 +622,4 @@ urlpatterns = [
             </div>
 ```
 效果如下：
-![card2效果](https://github.com/hflag/bootstrap_django/blob/master/card2.png)
+![card2效果](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/card2.png)
