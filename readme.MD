@@ -119,18 +119,21 @@ Bootstrap的设计是移动优先的，并且能够根据不同设备进行适�
 对一个块级标签使用container的作用是保持内容显示在屏幕上一个固定尺寸的宽度。另一个选择是使用container-fluid，
 这个类能使内容自动散开填满整个屏幕的宽度。
 ### 1. 首先对</header>下的div添加这个类，代码如下：
+```html
     <div class='container'>...
-
+```
 ## 二、把内容划分成rows
 对从container内的下一级div添加row类，这样我们可以把内容按照行来组织。
+```html
     <div class='row'>...
+```
 这里中间部分，也就是标记为container的div下有4个子div，都要添加这个类。
 
 ## 三、对header标签添加jumboron类。这使得header元素转换成了bootstrap的jumbotron组件。
 同样的紧邻的下一级div添加container类。
-
+```html
     <header class='jumbotron'>...
- 
+```
 ## 四、对footer下的一级div也添加类container
 
 经过上面的处理，目前所有网页内容显示在一个container所确定的固定宽度内。
