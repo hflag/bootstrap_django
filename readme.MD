@@ -518,3 +518,108 @@ urlpatterns = [
 ```
 这样就在页面中添加了一个form。效果如下：
 ![form](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/FireShot%20Capture%20003%20-%20Ristorante%20Con%20Fusion_%20About%20Us%20-%20http___localhost_8000_contact_.png)
+
+
+# 第八章 页面中使用table和card组件
+
+回到我们的aboutus.html页面，为该页面添加table和card
+
+## 一、 添加table
+1. 在Corparate Leadership row后面，添加新的行和列：
+```html
+<div class="row row-content">
+  <div class="col-12 col-sm-9">
+     <h2>Facts &amp; Figures</h2>
+  </div>
+  <div class="col-12 col-sm-3">
+  </div>
+</div>
+```
+2. 在上面的第一个内层div中添加如下代码：
+```html
+            <div class="col-12 col-sm-9">
+                <h2>Facts &amp; Figures</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>2013</th>
+                                <th>2014</th>
+                                <th>2015</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Employees</th>
+                                <td>15</td>
+                                <td>30</td>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <th>Guests Served</th>
+                                <td>15000</td>
+                                <td>45000</td>
+                                <td>100,000</td>
+                            </tr>
+                            <tr>
+                                <th>Special Events</th>
+                                <td>3</td>
+                                <td>20</td>
+                                <td>45</td>
+                            </tr>
+                            <tr>
+                                <th>Annual Turnover</th>
+                                <td>$251,325</td>
+                                <td>$1,250,375</td>
+                                <td>~$3,000,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+```
+这样就添加了一个table组件，效果如下：
+![tablexiaoguo](https://github.com/hflag/bootstrap_django/blob/master/table1.png)
+
+## 二、添加card组件
+1. 在内容区的第二个div中，为第二列添加一个card
+```html
+            <div class="col-12 col-sm-6">
+                <div class="card">
+                    <h3 class="card-header bg-primary text-white">Facts At a Glance</h3>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-6">Started</dt>
+                            <dd class="col-6">3 Feb. 2013</dd>
+                            <dt class="col-6">Major Stake Holder</dt>
+                            <dd class="col-6">HK Fine Foods Inc.</dd>
+                            <dt class="col-6">Last Year's Turnover</dt>
+                            <dd class="col-6">$1,250,375</dd>
+                            <dt class="col-6">Employees</dt>
+                            <dd class="col-6">40</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+```
+效果如下：
+![card1效果图](https://github.com/hflag/bootstrap_django/blob/master/card1.png)
+
+2. 在上面div后。另外再添加一个div，增加另外一个card
+```html
+            <div class="col-12">
+                <div class="card card-body bg-light">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">You better cut the pizza in four pieces because
+                            I'm not hungry enough to eat six.</p>
+                        <footer class="blockquote-footer">Yogi Berra,
+                            <cite title="Source Title">The Wit and Wisdom of Yogi Berra,
+                            P. Pepe, Diversion Books, 2014</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+```
+效果如下：
+![card2效果](https://github.com/hflag/bootstrap_django/blob/master/card2.png)
