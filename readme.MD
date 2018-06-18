@@ -421,3 +421,4 @@ urlpatterns = [
     <a role="button" class="btn btn-info"><i class="fa fa-skype"></i> Skype</a>
     <a role="button" class="btn btn-success" href="mailto:confusion@food.net"><i class="fa fa-envelope-o"></i> Email</a>
 </div>
+![页面截图](https://github.com/hflag/bootstrap_django/raw/master/screen_shots/screenshot-buttons.png)
