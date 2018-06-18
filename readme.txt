@@ -222,3 +222,14 @@ address{
 3. 更新包含社会媒体链接的那个div的类
     <div class='text-center'>
 
+三、水平居中显示内容
+更新footer中包含内容段落的div：
+    <div class="row justify-content-center">
+                <div class="col-auto">
+
+
+四、设置ul样式
+    <ul class="list-unstyled"> ... </ul>
+
+至此，一个页面基本完成。同时上去第二个页面aboutus.html.
+
