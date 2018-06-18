@@ -226,14 +226,17 @@ address{
 ## 二、垂直居中显示内容
 
 1. 在内容区，更新所有row的类
+```html
     <div class='row row-content align-items-center'>
-
+```
 2. 在footer区，更新第三个列div，就是包括社会媒体链接的那个
+```html
     <div class='col-12 col-sm-4 align-self-center'>
-
+```
 3. 更新包含社会媒体链接的那个div的类
+```html
     <div class='text-center'>
-
+```
 ## 三、水平居中显示内容
 更新footer中包含内容段落的div：
 ```html
@@ -242,8 +245,9 @@ address{
 ```
 
 ## 四、设置ul样式
+```
     <ul class="list-unstyled"> ... </ul>
-
+```
 至此，一个页面基本完成。同时上去第二个页面aboutus.html.
 
                 第四章 aboutus.html
