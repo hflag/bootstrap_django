@@ -337,5 +337,58 @@ body{
  </li>
 这样点击相应菜单时，就可以正确跳转了。
 
-三、拷贝index.html中的nav部分，添加到aboutus.html页面，是aboutus.html页面也有导航条。
+四、拷贝index.html中的nav部分，添加到aboutus.html页面，是aboutus.html页面也有导航条。
 接下来修改当前导航菜单，把包含Home的li标签的active删去，添加到包含About的li标签中。
+
+                第六章 为页面添加Icon Fonts
+
+页面中添加精美的icon fonts后能添加好多灵气，如果要在页面中使用icon fonts。必须有font-awesome
+和 bootstrap-social支持。我们的base-4.1.1模板中已经集成了支持。
+
+一、在页面中使用font icons，起到装饰的作用，更新navbar中的ul
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">
+                            <span class="fa fa-home fa-lg"></span>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{% url 'about' %}">
+                            <span class="fa fa-info fa-lg"></span>
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">
+                            <span class="fa fa-list fa-lg"></span>
+                            Menu
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">
+                            <span class="fa fa-address-card fa-lg"></span>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+相应的也要更新aboutus.html中的navbar
+
+二、修改index和aboutus页面中footer内的address，使用下面的代码取代'Tel', 'Fax'和'Email'
+<i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+<i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+<i class="fa fa-envelope fa-lg"></i>:
+ <a href="mailto:confusion@food.net">confusion@food.net</a>
+
+三、使用bootstrap-social CSS类来创建social按钮
+在index和aboutus中的footer部分，修改social链接如下：
+<div class="text-center">
+  <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+  <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+  <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+  <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+  <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+  <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+</div>
+
+至此完成icon fonts使用，赶快刷新页面看看吧
