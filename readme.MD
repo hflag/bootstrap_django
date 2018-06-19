@@ -693,4 +693,5 @@ urlpatterns = [
 1. 大屏情况下，效果如下
 ![大屏效果图](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/bigindex.png)
 2. 小屏情况下，效果如下
+
 ![小屏效果](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/smallindex.png)
