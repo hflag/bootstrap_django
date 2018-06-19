@@ -675,3 +675,15 @@ urlpatterns = [
                 </div>
             </div>
 ```
+
+## 三、使用 badge组件，提醒用户
+1. 打开index.html页面，找到第一个内容div中的Uthappizza,在h2标签中添加下面的代码
+```html
+<span class="badge badge-danger">HOT</span>
+```
+2. 紧接其后添加另一个badge，代码如下
+```html
+<span class="badge badge-pill badge-secondary">$4.99</span>
+```
+效果如下：
+![badge效果图](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/badge.png)
