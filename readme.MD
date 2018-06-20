@@ -691,7 +691,76 @@ urlpatterns = [
 练习：
 完成如下效果：
 1. 大屏情况下，效果如下
+(在点击'Reserve Table'按钮的时候，页面能显示底部的form)
 ![大屏效果图](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/bigindex.png)
 2. 小屏情况下，效果如下
 
 ![小屏效果](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/smallindex.png)
+
+# 第十章 Tabs和Pills
+
+为了在同一个页面显示不同的内容，经常使用tabs和pills。我们把aboutus.html页面中关于“Corporate Leadership”
+部分分别使用tabs和pills导航。
+
+## 一、使用tabs
+1、找到Corporate Leadership，在其下方添加如下代码：
+```html
+<ul class="nav nav-tabs" role="tablist">
+   <li class="nav-item">
+       <a class="nav-link active" data-toggle="tab" href="#peter" role="tab">
+           Peter Pan,CEO
+       </a>
+   </li>
+   <li class="nav-item">
+       <a class="nav-link" data-toggle="tab" href="#dhanasekaran" role="tab">
+           Dhanasekaran Witherspoon,CFO
+       </a>
+   </li>
+   <li class="nav-item">
+       <a class="nav-link" data-toggle="tab" href="#agumbe" role="tab">
+            Agumbe Tang,CTO
+       </a>
+   </li>
+   <li class="nav-item">
+       <a class="nav-link" data-toggle="tab" href="#alberto" role="tab">
+            Alberto Somayya,Exec. Chef
+       </a>
+   </li>
+</ul>
+```
+2. 紧接着添加如下代码
+```html
+<div class="tab-content">
+   <div class="tab-pane fade show active" id="peter" role="tabpanel">
+      <h3>Peter Pan <small>Chief Epicurious Officer</small></h3>
+       <p class="d-none d-sm-block">Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which <em>The Frying Pan</em> became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections.</p>
+
+   </div>
+   <div class="tab-pane fade" id="dhanasekaran" role="tabpanel">
+      <h3>Dhanasekaran Witherspoon <small>Chief Food Officer</small></h3>
+      <p class="d-none d-sm-block">Our CFO, Danny, as he is affectionately referred to by his colleagues, comes from a long established family tradition in farming and produce. His experiences growing up on a farm in the Australian outback gave him great appreciation for varieties of food sources. As he puts it in his own words, <em>Everything that runs, wins, and everything that stays, pays!</em></p>
+
+   </div>
+   <div class="tab-pane fade" id="agumbe" role="tabpanel">
+      <h3>Agumbe Tang <small>Chief Taste Officer</small></h3>
+      <p class="d-none d-sm-block">Blessed with the most discerning gustatory sense, Agumbe, our CTO, personally ensures that every dish that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their dish does not meet his exacting standards. He lives by his motto, <em>You click only if you survive my lick.</em></p>
+
+   </div>
+   <div class="tab-pane fade" id="alberto" role="tabpanel">
+      <h3>Alberto Somayya <small>Executive Chef</small></h3>
+      <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, <em>Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!</em></p>
+
+   </div>
+</div>
+```
+3. 对tabs添加自定义样式
+```css
+.tab-content{
+    border-left:1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+```
+效果如下：
+![tabs导航](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/navtab.png)
