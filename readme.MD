@@ -764,3 +764,110 @@ urlpatterns = [
 ```
 效果如下：
 ![tabs导航](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/navtab.png)
+
+# 第十一章 隐藏和显示
+
+collapse Javascript插件用于显示和隐藏内容。使用按钮或者链接作为触发器，并且映射到特定的
+你需要控制的元素上。这里我们使用这个javascript插件来制作一个手风琴效果。
+
+## 一、在aboutus.html页面将公司领导介绍使用手风琴效果来展示
+
+1.找到Corporate Leadership，将下面的tabs用下面代码取代
+```html
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h3 class="mb-0">
+                                <a data-toggle="collapse" data-target="#collapseOne">
+                                    Peter Pan
+                                    <small>Chief Epicurious Officer</small>
+                                </a>
+                            </h3>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                <p class="d-none d-sm-block">Our CFO, Danny, as he is affectionately referred to by his
+                                    colleagues, comes from a long established family tradition in farming and produce.
+                                    His experiences growing up on a farm in the Australian outback gave him great
+                                    appreciation for varieties of food sources. As he puts it in his own words, <em>Everything
+                                        that runs, wins, and everything that stays, pays!</em></p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h3 class="mb-0">
+                                <a data-toggle="collapse" data-target="#collapseTwo">
+                                    Dhanasekaran Witherspoon
+                                <small>Chief Food Officer</small>
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it
+                                squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+                                butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+                                nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h3 class="mb-0">
+                                <a  data-toggle="collapse" data-target="#collapseThree">
+                                    Agumbe Tang
+                                    <small>Chief Taste Officer</small>
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it
+                                squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+                                butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+                                nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h3 class="mb-0">
+                                <a data-toggle="collapse" data-target="#collapseFour">
+                                    Alberto Somayya <small>Executive Chef</small>
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide
+                                    International experience having worked closely with whos-who in the culinary world,
+                                    he specializes in creating mouthwatering Indo-Italian fusion experiences. He says,
+                                    <em>Put together the cuisines from the two craziest cultures, and you get a winning
+                                        hit! Amma Mia!</em></p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+```
+2. 为标签a添加小手形状指针
+打开style.css
+```css
+a{
+    cursor: pointer;
+}
+```
+刷新页面，赶快看看你的手风琴吧！
