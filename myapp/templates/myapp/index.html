@@ -61,7 +61,8 @@
                     <img src="{% static 'img/logo.png' %}" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <a href="#1" class="btn btn-warning" style="padding-left:30px; padding-right: 30px;">Reserve Table</a>
+                    <a role="button" href="#1" class="btn btn-warning" style="padding-left:30px; padding-right: 30px;" data-placement="bottom" data-toggle="tooltip"
+                    data-html="true" title="Or call us at <br><strong>+852 12345678</strong>">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -227,4 +228,11 @@
             </div>
         </div>
     </footer>
+{% endblock %}
+{% block domready %}
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>
 {% endblock %}

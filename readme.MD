@@ -872,3 +872,43 @@ a{
 ```
 刷新页面，赶快看看你的手风琴吧！
 ![accordion](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/accordion.png)
+
+# 第十二章 tooltips、popover和module
+这些都是离不开javascript的功能。
+
+## 一、tooltips功能就是当鼠标放到按钮或链接上时给用户一个提示
+1. 找到index.html中jumbotron部分中的按钮状链接，修改代码如下：
+```html
+<div class="col-12 col-sm-3 align-self-center">
+   <a role="button" href="#1" class="btn btn-warning" style="padding-left:30px; padding-right: 30px;" data-placement="bottom" data-toggle="tooltip"
+      data-html="true" title="Or call us at <br><strong>+852 12345678</strong>">Reserve Table</a>
+</div>
+```
+这里多了几个属性：
+data-toggle="tooltip" 表明要使用tooltips
+data-placement="bottom" 表明提示显示的位置
+data-html="true" 表明可以使用html标签
+title="Or call us at <br><strong>+852 12345678</strong> 就是显示的内容了
+
+2. 添加必须的javascript
+
+首先在base-4.1.1.html中添加如下代码：
+```html
+{% block domready %}
+{% endblock %}
+```
+为其他子页面使用javascrit预留空间
+
+3. 在index.html中，添加如下代码：
+```javascript
+{% block domready %}
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>
+{% endblock %}
+```
+完成上面的步骤，测试一下，看看能否看到tooltip
+效果图如下：
+![tooltip](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/accordion.png)
