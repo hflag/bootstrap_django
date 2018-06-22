@@ -993,3 +993,55 @@ Carousel就是能够像幻灯片一下连续展示一些图片。
   </div>
 </div>
 ```
+2.在上面的内部div中添加carousel div
+```html
+<div class="row row-content">
+  <div class="col">
+     <div id="mycarousel" class="carousel slide" data-ride="carousel">
+         ...
+    </div>
+  </div>
+</div>
+```
+3.在最内层添加carousel内容
+```html
+<div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+        <img class="d-block img-fluid" src="{% static 'img/uthappizza.png' %}" alt="Uthappizza">
+        <div class="carousel-caption d-none d-md-block">
+             <h2>Uthappizza
+                 <span class="badge badge-danger">HOT</span>
+                 <span class="badge badge-pill badge-warning">$4.99</span>
+             </h2>
+             <p>A unique combination of Indian Uthappam (pancake)
+               and Italian pizza, topped with Cerignola olives,
+               ripe vine cherry tomatoes, Vidalia onion,
+               Guntur chillies and Buffalo Paneer.</p>
+       </div>
+    </div>
+
+    <div class="carousel-item">
+         ...
+    </div>
+
+
+    <div class="carousel-item ">
+         ...
+    </div>
+
+ </div>
+```
+4. 添加控制部分
+```html
+<ol class="carousel-indicators">
+   <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+   <li data-target="#mycarousel" data-slide-to="1"></li>
+   <li data-target="#mycarousel" data-slide-to="2"></li>
+</ol>
+<a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+</a>
+```
