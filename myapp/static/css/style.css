@@ -23,6 +23,7 @@ body{
     z-index: 0;
 }
 
+
 .tab-content{
     border-left:1px solid #ddd;
     border-right: 1px solid #ddd;
@@ -31,4 +32,18 @@ body{
 }
 a{
     cursor: pointer;
+}
+.carousel {
+    background:#007bff;
+}
+
+.carousel-item {
+  height: 300px;
+}
+
+.carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
 }

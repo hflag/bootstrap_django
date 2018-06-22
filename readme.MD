@@ -980,3 +980,16 @@ title="Or call us at <br><strong>+852 12345678</strong> 就是显示的内容了
 刷新页面，查看modal登录
 效果如下：
 ![modal form](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/modal_form.png)
+
+# 第十三章 使用Carousel（轮播图）
+
+Carousel就是能够像幻灯片一下连续展示一些图片。
+## 一、添加Carousel
+1.找到内容区的container，添加一个新的row, 并且添加一个col-12。
+```html
+<div class="row row-content">
+  <div class="col">
+      ...
+  </div>
+</div>
+```
