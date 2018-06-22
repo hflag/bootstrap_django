@@ -912,3 +912,71 @@ title="Or call us at <br><strong>+852 12345678</strong> 就是显示的内容了
 完成上面的步骤，测试一下，看看能否看到tooltip
 效果图如下：
 ![tooltip](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/accordion.png)
+
+
+## 二、使用Modal组件
+使用bootstrap的javascript modal插件可以为网站添加对话框，用于显示轻量级内容、用户通知或者
+完整的定制内容。
+1. 在index.html页面找到nav部分，在其后，不是nav标签内部，一定要注意！添加如下代码：
+```html
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 d-flex justify-content-end">
+                                <button type="button" class="btn btn-secondary btn-sm mr-3" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary btn-sm mr-3">Sign in</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+```
+上面代码就是一个modal form的定义。
+
+2. 找到nav部分，在ul标签下，添加如下内容：
+```html
+<span class="navbar-text">
+  <a data-toggle="modal" data-target="#loginModal">
+      <span class="fa fa-sign-in"></span>Login
+  </a>
+</span>
+```
+
+刷新页面，查看modal登录
+效果如下：
+![modal form](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/modal_form.png)
