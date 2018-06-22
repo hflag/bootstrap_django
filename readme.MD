@@ -911,7 +911,7 @@ title="Or call us at <br><strong>+852 12345678</strong> 就是显示的内容了
 ```
 完成上面的步骤，测试一下，看看能否看到tooltip
 效果图如下：
-<<<<<<< HEAD
+
 ![tooltip](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/tooltip.png)
 
 
@@ -977,10 +977,6 @@ title="Or call us at <br><strong>+852 12345678</strong> 就是显示的内容了
   </a>
 </span>
 ```
-
 刷新页面，查看modal登录
 效果如下：
 ![modal form](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/modal_form.png)
-=======
-![tooltip](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/tooltip.png)
->>>>>>> d097979ec69abd2a07ec2a17ff3268ce6957eb89
