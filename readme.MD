@@ -871,3 +871,4 @@ a{
 }
 ```
 刷新页面，赶快看看你的手风琴吧！
+![accordion](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/accordion.png)
