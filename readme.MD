@@ -1045,3 +1045,5 @@ Carousel就是能够像幻灯片一下连续展示一些图片。
     <span class="carousel-control-next-icon"></span>
 </a>
 ```
+效果图：
+![carousel](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/carousel.png)
