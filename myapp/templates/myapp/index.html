@@ -54,6 +54,7 @@
 
         </div>
     </nav>
+
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
@@ -100,6 +101,7 @@
             </div>
         </div>
     </div>
+
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header">
@@ -112,13 +114,75 @@
                     <img src="{% static 'img/logo.png' %}" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <a role="button" href="#1" class="btn btn-warning" style="padding-left:30px; padding-right: 30px;" data-placement="bottom" data-toggle="tooltip"
-                    data-html="true" title="Or call us at <br><strong>+852 12345678</strong>">Reserve Table</a>
+                    <a data-toggle="modal" data-target="#reserveModal" class="btn btn-warning" style="padding-left:30px; padding-right: 30px;">
+                       Reserve Table
+                    </a>
                 </div>
             </div>
         </div>
     </header>
+    <div id="reserveModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Reserve a Table</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form >
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <legend class="col-form-label col-sm-2 pt-0">Number of Guests</legend>
+                                    <div class="col-sm-10">
+                                        {% for i in '123456'|make_list %}
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                   id="gridRadios{{ i }}" value="option{{ i }}" >
+                                            <label class="form-check-label" for="gridRadios{{ i }}">
+                                                {{ forloop.counter }}
+                                            </label>
+                                        </div>
+                                        {% endfor %}
 
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group row">
+                                <label for="section" class="col-sm-2 col-form-label">Section</label>
+                                <div class="col-sm-10">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-success active">
+                                            <input type="radio" name="options" id="option1" autocomplete="off" checked>Non-Smoking
+                                        </label>
+                                        <label class="btn btn-danger">
+                                            <input type="radio" name="options" id="option2" autocomplete="off">Smoking
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Date" class="col-sm-2 col-form-label">Date and Time</label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="date" placeholder="Date">
+                                </div>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="time" placeholder="Time">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-10 offset-sm-2">
+                                    <button type="button" class="btn btn-secondary  mr-3" data-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Reserve</button>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row row-content">
             <div class="col">
@@ -181,53 +245,7 @@
             </div>
         </div>
 
-        <div class="row row-content">
-            <div class="col-12 col-sm-2"></div>
-            <div class="col-12 col-sm-8">
-                <div class="card">
-                    <div class="card-header text-white bg-warning">
-                        <h2>Reverse a Table</h2>
-                    </div>
-                    <div class="card-body" id="1">
-                        <form >
-                            <fieldset class="form-group">
-                                <div class="row">
-                                    <legend class="col-form-label col-sm-2 pt-0">Number of Guests</legend>
-                                    <div class="col-sm-10">
-                                        {% for i in '123456'|make_list %}
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="gridRadios"
-                                                   id="gridRadios{{ i }}" value="option{{ i }}" >
-                                            <label class="form-check-label" for="gridRadios{{ i }}">
-                                                {{ forloop.counter }}
-                                            </label>
-                                        </div>
-                                        {% endfor %}
 
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div class="form-group row">
-                                <label for="Date" class="col-sm-2 col-form-label">Date and Time</label>
-                                <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="date" placeholder="Date">
-                                </div>
-                                <div class="col-sm-5">
-                                    <input type="email" class="form-control" id="time" placeholder="Time">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-10 offset-sm-2">
-                                    <button type="submit" class="btn btn-primary">Reserve</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm"></div>
-        </div>
 
     </div>
 
@@ -279,10 +297,4 @@
         </div>
     </footer>
 {% endblock %}
-{% block domready %}
-<script>
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    })
-</script>
-{% endblock %}
+

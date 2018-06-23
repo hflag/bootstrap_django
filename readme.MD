@@ -1047,3 +1047,52 @@ Carousel就是能够像幻灯片一下连续展示一些图片。
 ```
 效果图：
 ![carousel](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/carousel.png)
+
+小练习：将Reserv Table改为modal，并且在其中添加一个radio button group，使得就餐客人可以选择
+无烟房间和有烟房间。
+1. 首先找到form，添加一个新行,然后使用button group，代码如下：
+```html
+<div class="form-group row">
+   <label for="section" class="col-sm-2 col-form-label">Section</label>
+   <div class="col-sm-10">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+         <label class="btn btn-success active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked>Non-Smoking
+         </label>
+         <label class="btn btn-danger">
+            <input type="radio" name="options" id="option2" autocomplete="off">Smoking
+         </label>
+      </div>
+   </div>
+</div>
+```
+2.在header之后，添加一个div用来曾modal
+```html
+<div id="reserveModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg" role="content">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h4 class="modal-title">Reserve a Table</h4>
+           <button type="button" class="close" data-dismiss="modal">
+              &times;
+           </button>
+        </div>
+        <div class="modal-body">
+           form here ...
+        </div>
+     </div>
+  </div>
+</div>
+```
+一定要把定义好的那个form拷贝到上面相应的代码部分。
+
+3. modal的触发。删除页面内tooltip的javascripts，修改jumbotron中相应代码如下：
+```html
+<div class="col-12 col-sm-3 align-self-center">
+   <a data-toggle="modal" data-target="#reserveModal" class="btn btn-warning" style="padding-left:30px; padding-right: 30px;">
+      Reserve Table
+   </a>
+</div>
+```
+刷新后查看效果：
+![modal](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/modal1.png)
