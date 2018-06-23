@@ -1048,9 +1048,9 @@ Carousel就是能够像幻灯片一下连续展示一些图片。
 效果图：
 ![carousel](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/carousel.png)
 
-小练习：将Reserv Table改为modal，并且在其中添加一个radio button group，使得就餐客人可以选择
+5. 小练习：将Reserv Table改为modal，并且在其中添加一个radio button group，使得就餐客人可以选择
 无烟房间和有烟房间。
-1. 首先找到form，添加一个新行,然后使用button group，代码如下：
+1). 首先找到form，添加一个新行,然后使用button group，代码如下：
 ```html
 <div class="form-group row">
    <label for="section" class="col-sm-2 col-form-label">Section</label>
@@ -1066,7 +1066,7 @@ Carousel就是能够像幻灯片一下连续展示一些图片。
    </div>
 </div>
 ```
-2.在header之后，添加一个div用来曾modal
+2).在header之后，添加一个div用来曾modal
 ```html
 <div id="reserveModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg" role="content">
@@ -1086,7 +1086,7 @@ Carousel就是能够像幻灯片一下连续展示一些图片。
 ```
 一定要把定义好的那个form拷贝到上面相应的代码部分。
 
-3. modal的触发。删除页面内tooltip的javascripts，修改jumbotron中相应代码如下：
+3). modal的触发。删除页面内tooltip的javascripts，修改jumbotron中相应代码如下：
 ```html
 <div class="col-12 col-sm-3 align-self-center">
    <a data-toggle="modal" data-target="#reserveModal" class="btn btn-warning" style="padding-left:30px; padding-right: 30px;">
@@ -1096,3 +1096,51 @@ Carousel就是能够像幻灯片一下连续展示一些图片。
 ```
 刷新后查看效果：
 ![modal](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/modal1.png)
+
+6. 在carousel中使用javascript
+bootstrap中使用javascript利用的是jQuery库。所以如果在其中想高效地使用javascript，那么熟悉jQuery
+是必须的。
+
+1). 在index页面中id='mycarousel’的div中，添加用于控制carousel的按钮组，如下：
+```html
+<div class="btn-group" id="carouselButton">
+  <button class="btn btn-danger btn-sm" id="carousel-pause">
+     <span class="fa fa-pause"></span>
+  </button>
+  <button class="btn btn-danger btn-sm" id="carousel-play">
+     <span class="fa fa-play"></span>
+  </button>
+</div>
+```
+但是刷新显示后，按钮位置不合适，我们定义css
+```css
+#carouselButton {
+    right:0px;
+    position: absolute;
+    bottom: 0px;
+}
+```
+通过上面自定义的css，这个按钮组就到了合适的位置。
+
+2). 在页面中添加下面代码，通过自定义javascript控制carousel的行为
+```
+{% block domready %}
+    <script>
+        $(document).ready(function () {
+            $("#mycarousel").carousel( { interval: 1000 } );
+
+            $("#carousel-pause").click(function () {
+
+                $("#mycarousel").carousel('pause');
+            });
+
+            $("#carousel-play").click(function () {
+
+                $("#mycarousel").carousel('cycle');
+            });
+        })
+    </script>
+{% endblock %}
+```
+刷新页面，进行测试吧！
+![效果如下](https://github.com/hflag/bootstrap_django/blob/master/screen_shots/carousel_c.png)
